@@ -1,0 +1,19 @@
+<div class="card mt-4 mb-4">
+    <div class="card-header">{{ event.name }}</div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 col-sm-9">
+                <div class="race-info">
+                    {{ event.name ~ ', ' ~ event.country }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-3">
+                <a href="{{ path('app_race_event_edit', {id:event.id}) }}" class="btn btn-primary">Edit</a>
+
+                <a href="{{ path('app_race_event_delete', {id:event.id}) }}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>

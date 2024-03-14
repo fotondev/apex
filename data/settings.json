@@ -1,0 +1,20 @@
+{
+  "serverName": "APEX Server",
+  "adminPassword": "",
+  "carGroup": "FreeForAll",
+  "trackMedalsRequirement": -1,
+  "safetyRatingRequirement": -1,
+  "racecraftRatingRequirement": -1,
+  "password": "",
+  "maxCarSlots": 24,
+  "spectatorPassword": "",
+  "configVersion": 1,
+  "dumpLeaderboards": 0,
+  "isRaceLocked": 1,
+  "randomizeTrackWhenEmpty": 0,
+  "centralEntryListPath": "",
+  "allowAutoDQ": 1,
+  "shortFormationLap": 0,
+  "dumpEntryList": 0,
+  "formationLapType": 3
+}

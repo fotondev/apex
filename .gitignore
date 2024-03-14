@@ -24,3 +24,7 @@ yarn-error.log
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+
+###> race-config-dir ###
+/data
+###< race-config-dir ###

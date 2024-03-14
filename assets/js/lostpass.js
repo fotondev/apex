@@ -1,4 +1,3 @@
-import '../less/inc/login.less'
 import {post} from './ajax';
 
 

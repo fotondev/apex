@@ -8,7 +8,10 @@ const ajax = async (url, method = 'get', data = {}, domElement = null) => {
             'X-Requested-With': 'XMLHttpRequest'
         }
     }
-    options.body = JSON.stringify(data)
+
+    if (method !== 'get') {
+        options.body = JSON.stringify(data)
+    }
 
     try {
         const response = await fetch(url, options);
@@ -23,6 +26,9 @@ const ajax = async (url, method = 'get', data = {}, domElement = null) => {
                 handleValidationErrors(errors, domElement);
             } else if (response.status === 404) {
                 window.location = '/404'
+            } else if (response.status === 400) {
+                const errors = await response.json();
+                console.log(errors);
             }
         }
 
@@ -59,6 +65,20 @@ function clearValidationErrors(domElement) {
             e.remove()
         })
     })
+}
+
+
+function handleBadRequest() {
+    const errorDiv = document.querySelector('#config-error')
+    errorDiv.classList.add('alert', 'alert-danger')
+    errorDiv.textContent = "Invalid event config"
+
+    document.querySelector('.container').prepend(errorDiv)
+
+    setTimeout(function () {
+        errorDiv.remove()
+    }, 3000)
+
 }
 
 export {

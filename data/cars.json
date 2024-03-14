@@ -1,0 +1,474 @@
+{
+  "vehicles": [
+    {
+      "id": 0,
+      "carModel": "Porsche 991 gt3 R",
+      "year": 2018,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 1,
+      "carModel": "Mercedes-AMG gt3",
+      "year": 2015,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 2,
+      "carModel": "Ferrari 488 gt3",
+      "year": 2018,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 3,
+      "carModel": "Audi R8 LMS",
+      "year": 2015,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 4,
+      "carModel": "Lamborghini Huracán gt3",
+      "year": 2015,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 5,
+      "carModel": "McLaren 650S gt3",
+      "year": 2015,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 6,
+      "carModel": "Nissan GT-R Nismo gt3",
+      "year": 2018,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 7,
+      "carModel": "BMW M6 gt3",
+      "year": 2017,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 8,
+      "carModel": "Bentley Continental gt3",
+      "year": 2018,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 9,
+      "carModel": "Porsche 991 II gt3 Cup",
+      "year": 2017,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": false,
+      "gtc": true,
+      "tcx": false
+    },
+    {
+      "id": 10,
+      "carModel": "Nissan GT-R Nismo gt3",
+      "year": 2015,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 11,
+      "carModel": "McLaren 570S gt4",
+      "year": 2016,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": true,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 12,
+      "carModel": "Porsche 991 II gt3 Cup",
+      "year": 2017,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": false,
+      "gtc": true,
+      "tcx": false
+    },
+    {
+      "id": 13,
+      "carModel": "BMW M6 gt3",
+      "year": 2017,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 14,
+      "carModel": "Audi R8 LMS",
+      "year": 2015,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 15,
+      "carModel": "Mercedes-AMG gt4",
+      "year": 2017,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": true,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 16,
+      "carModel": "Porsche 718 Cayman gt4 Clubsport",
+      "year": 2015,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": true,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 17,
+      "carModel": "Porsche 911 II gt3 R",
+      "year": 2019,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 18,
+      "carModel": "Aston Martin Vantage gt3",
+      "year": 2019,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 19,
+      "carModel": "Mercedes-AMG gt3",
+      "year": 2020,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 20,
+      "carModel": "AMR V8 Vantage",
+      "year": 2019,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 21,
+      "carModel": "Honda NSX gt3 Evo",
+      "year": 2019,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 22,
+      "carModel": "McLaren 720S gt3",
+      "year": 2019,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 23,
+      "carModel": "Porsche 991 II gt3 R",
+      "year": 2019,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 24,
+      "carModel": "Ferrari 488 gt3 Evo",
+      "year": 2020,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 25,
+      "carModel": "Mercedes-AMG gt3",
+      "year": 2020,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 26,
+      "carModel": "BMW M4 gt3",
+      "year": 2022,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 27,
+      "carModel": "BMW M2 Club Sport Racing",
+      "year": 2020,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": false,
+      "gtc": false,
+      "tcx": true
+    },
+    {
+      "id": 28,
+      "carModel": "Porsche 992 gt3 Cup",
+      "year": 2021,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": false,
+      "gtc": true,
+      "tcx": false
+    },
+    {
+      "id": 29,
+      "carModel": "Lamborghini Huracán SuperTrofeo EVO2",
+      "year": 2021,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": false,
+      "gtc": true,
+      "tcx": false
+    },
+    {
+      "id": 30,
+      "carModel": "Ferrari 488 Challenge Evo",
+      "year": 2020,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": false,
+      "gtc": true,
+      "tcx": false
+    },
+    {
+      "id": 31,
+      "carModel": "Audi R8 LMS gt3 Evo 2",
+      "year": 2022,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 32,
+      "carModel": "Ferrari 296 gt3",
+      "year": 2023,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 33,
+      "carModel": "Lamborghini Huracan gt3 Evo 2",
+      "year": 2023,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 34,
+      "carModel": "Porsche 992 gt3R",
+      "year": 2023,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 35,
+      "carModel": "McLaren 720S gt3 Evo",
+      "year": 2023,
+      "freeForAll": true,
+      "gt3": true,
+      "gt4": false,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 50,
+      "carModel": "Alpine A110 gt4",
+      "year": 2018,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": true,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 51,
+      "carModel": "Aston Martin Vantage gt4",
+      "year": 2018,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": true,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 52,
+      "carModel": "Audi R8 LMS gt4",
+      "year": 2018,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": true,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 53,
+      "carModel": "BMW M4 gt4",
+      "year": 2018,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": true,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 55,
+      "carModel": "Chevrolet Camaro gt4",
+      "year": 2017,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": true,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 56,
+      "carModel": "Ginetta G55 gt4",
+      "year": 2012,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": true,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 57,
+      "carModel": "KTM X-Bow gt4",
+      "year": 2016,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": true,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 58,
+      "carModel": "Maserati MC gt4",
+      "year": 2016,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": true,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 59,
+      "carModel": "McLaren 570S gt4",
+      "year": 2016,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": true,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 60,
+      "carModel": "Mercedes AMG gt4",
+      "year": 2016,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": true,
+      "gtc": false,
+      "tcx": false
+    },
+    {
+      "id": 61,
+      "carModel": "Porsche 718 Cayman gt4 Clubsport",
+      "year": 2019,
+      "freeForAll": true,
+      "gt3": false,
+      "gt4": true,
+      "gtc": false,
+      "tcx": false
+    }
+  ]
+}

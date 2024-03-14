@@ -1,0 +1,170 @@
+[
+  {
+    "id": "monza",
+    "name": "Monza",
+    "country": "Italy",
+    "unique_pit_boxes": 29,
+    "private_server_slots": 60
+  },
+  {
+    "id": "zolder",
+    "name": "Zolder",
+    "country": "Belgium",
+    "unique_pit_boxes": 34,
+    "private_server_slots": 50
+  },
+  {
+    "id": "brands_hatch",
+    "name": "Brands Hatch",
+    "country": "United Kingdom",
+    "unique_pit_boxes": 32,
+    "private_server_slots": 50
+  },
+  {
+    "id": "silverstone",
+    "name": "Silverstone",
+    "country": "United Kingdom",
+    "unique_pit_boxes": 36,
+    "private_server_slots": 60
+  },
+  {
+    "id": "paul_ricard",
+    "name": "Paul Ricard",
+    "country": "France",
+    "unique_pit_boxes": 33,
+    "private_server_slots": 80
+  },
+  {
+    "id": "misano",
+    "name": "Misano",
+    "country": "Italy",
+    "unique_pit_boxes": 30,
+    "private_server_slots": 50
+  },
+  {
+    "id": "spa",
+    "name": "Spa",
+    "country": "Belgium",
+    "unique_pit_boxes": 82,
+    "private_server_slots": 82
+  },
+  {
+    "id": "nurburgring",
+    "name": "Nurburgring",
+    "country": "Germany",
+    "unique_pit_boxes": 30,
+    "private_server_slots": 50
+  },
+  {
+    "id": "barcelona",
+    "name": "Barcelona",
+    "country": "Spain",
+    "unique_pit_boxes": 29,
+    "private_server_slots": 50
+  },
+  {
+    "id": "hungaroring",
+    "name": "Hungaroring",
+    "country": "Hungary",
+    "unique_pit_boxes": 27,
+    "private_server_slots": 50
+  },
+  {
+    "id": "zandvoort",
+    "name": "Zandvoort",
+    "country": "Netherlands",
+    "unique_pit_boxes": 25,
+    "private_server_slots": 50
+  },
+  {
+    "id": "kyalami",
+    "name": "Kyalami",
+    "country": "South Africa",
+    "unique_pit_boxes": 40,
+    "private_server_slots": 50
+  },
+  {
+    "id": "mount_panorama",
+    "name": "Mount Panorama",
+    "country": "Australia",
+    "unique_pit_boxes": 36,
+    "private_server_slots": 50
+  },
+  {
+    "id": "suzuka",
+    "name": "Suzuka",
+    "country": "Japan",
+    "unique_pit_boxes": 51,
+    "private_server_slots": 105
+  },
+  {
+    "id": "laguna_seca",
+    "name": "Laguna Seca",
+    "country": "United States",
+    "unique_pit_boxes": 30,
+    "private_server_slots": 50
+  },
+  {
+    "id": "imola",
+    "name": "Imola",
+    "country": "Italy",
+    "unique_pit_boxes": 30,
+    "private_server_slots": 50
+  },
+  {
+    "id": "oulton_park",
+    "name": "Oulton Park",
+    "country": "United Kingdom",
+    "unique_pit_boxes": 28,
+    "private_server_slots": 50
+  },
+  {
+    "id": "donington",
+    "name": "Donington",
+    "country": "United Kingdom",
+    "unique_pit_boxes": 37,
+    "private_server_slots": 50
+  },
+  {
+    "id": "snetterton",
+    "name": "Snetterton",
+    "country": "United Kingdom",
+    "unique_pit_boxes": 26,
+    "private_server_slots": 50
+  },
+  {
+    "id": "cota",
+    "name": "Cota",
+    "country": "United States",
+    "unique_pit_boxes": 30,
+    "private_server_slots": 70
+  },
+  {
+    "id": "indianapolis",
+    "name": "Indianapolis",
+    "country": "United States",
+    "unique_pit_boxes": 30,
+    "private_server_slots": 60
+  },
+  {
+    "id": "watkins_glen",
+    "name": "Watkins Glen",
+    "country": "United States",
+    "unique_pit_boxes": 30,
+    "private_server_slots": 60
+  },
+  {
+    "id": "valencia",
+    "name": "Valencia",
+    "country": "Spain",
+    "unique_pit_boxes": 29,
+    "private_server_slots": 50
+  },
+  {
+    "id": "red_bull_ring",
+    "name": "Red Bull Ring",
+    "country": "Austria",
+    "unique_pit_boxes": 28,
+    "private_server_slots": 50
+  }
+]

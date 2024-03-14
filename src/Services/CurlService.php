@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use App\Contracts\CurlServiceInterface;
 use App\Exceptions\CurlException;
+use App\Services\Contracts\CurlServiceInterface;
 
 final class CurlService implements CurlServiceInterface
 {

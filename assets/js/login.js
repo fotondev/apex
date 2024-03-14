@@ -1,4 +1,4 @@
-import '../less/inc/login.less'
+import '../styles/app.scss';
 import {post} from './ajax';
 
 window.addEventListener('DOMContentLoaded', function () {

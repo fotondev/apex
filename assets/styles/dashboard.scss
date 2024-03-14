@@ -1,0 +1,27 @@
+@import "./variables.scss";
+
+
+.event-card {
+  background-color: #5fa0cb;
+}
+
+
+.race-config {
+  .sessions-config {
+    display: flex;
+    flex-direction: row;
+    margin-top: 16px;
+  }
+
+  .general-config {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .session-name {
+    color: crimson;
+  }
+
+}
+
