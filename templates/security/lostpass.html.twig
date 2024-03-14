@@ -1,0 +1,26 @@
+{% extends '/security/layout.html.twig' %}
+
+
+{% block body %}
+    <section class="container py-5 h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card-body p-5 text-center">
+                <form action="{{ path('security_lostpass_handle') }}" method="post">
+                    <h3 class="text-center">Reset Password</h3>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email"
+                               autofocus>
+                        <label for="email" class="control-label">E-mail</label>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary" id="reset_pass">Reset</button>
+                    </div>
+                </form>
+                <div id="form_successful" class="text-center" style="display: none">We’re all set!
+                    Check your email for a link to reset your password. If it doesn’t appear within a few minutes, check
+                    your spam folder.
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

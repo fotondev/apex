@@ -1,0 +1,22 @@
+{% extends 'dashboard/layout.html.twig' %}
+
+{% block body %}
+    <div class="container content-body">
+        <h2>Races</h2>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mt-4">
+                <a class="card btn" href="{{ path('app_race_events') }}">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-5">
+                            </div>
+                            <div class="col-7">
+                               <h3>Race Events</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

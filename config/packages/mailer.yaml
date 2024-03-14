@@ -1,0 +1,7 @@
+framework:
+    mailer:
+        dsn: '%env(MAILER_DSN)%'
+        envelope:
+            sender: 'test@test.test'
+            recipients: [ 'foo@example.com', 'bar@example.com' ]
+

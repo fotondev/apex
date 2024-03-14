@@ -1,0 +1,23 @@
+{% extends 'dashboard/layout.html.twig' %}
+
+{% block body %}
+
+<div class="container content-body">
+    <div class="row">
+        <div class="col-sm-4 offset-sm-4">
+            <h1 class="text-center">
+                Race Events
+            </h1>
+        </div>
+        <div class="col-sm-4">
+            <a href="{{ path('app_race_event_new') }}" class="btn btn-success float-right" id="create_event">
+                Create race event
+            </a>
+        </div>
+    </div>
+
+    {% for event in race_events  %}
+        {% include 'raceEvent/inc/event-card.html.twig' with {'event': event} %}
+    {% endfor %}
+</div>
+{% endblock %}

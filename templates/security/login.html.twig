@@ -1,0 +1,72 @@
+{% extends '/security/layout.html.twig' %}
+
+{% block body %}
+    <section class="container">
+        <div class="content-body">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card-body p-5 text-center">
+                    <form action="{{ path('security_login') }}" method="post">
+                        <h3 class="text-center">Log In</h3>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email"
+                                   autofocus value="{{ last_username }}">
+                            <label for="email" class="control-label">E-mail</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password" name="password"
+                                   required="required">
+                            <label for="password" class="control-label">Password</label>
+                        </div>
+                        <div class="text-center" style="margin-top: -2px;">
+                            <a href="{{ path('security_lostpass') }}" class="btn btn-link btn-sm" id="lostpass_btn">Forgot
+                                password</a>
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error.message }}</div>
+                        {% endif %}
+                        <div class="text-center">
+                            <input type="submit" class="btn btn-primary" value="Log In">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="content-body">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card-body p-5 text-center">
+                        <form action="{{ path('security_request_password') }}" method="POST">
+                            <div class="form-group">
+                                <h3 class="text-center">Get access</h3>
+                            </div>
+                            <div id="request_password_fields">
+                                <div class="form-group w100">
+                                    <input type="text" class="form-control" id="email" name="email" required="required">
+                                    <label for="email" class="control-label">E-mail</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" name="name" required="required">
+                                    <label for="name" class="control-label">Name</label>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary" id="get_access"
+                                            name="/request-password">Get
+                                        access
+                                    </button>
+                                </div>
+                                <div class="text-center" style="color: #141a18;font-size: 12px;margin-top: 10px;">Your
+                                    data is
+                                    protected
+                                </div>
+                            </div>
+                        </form>
+                        <div id="form_successful" class="text-center" style="display: none">We’re all set!
+                            Check your email for your password. If it doesn’t appear within a few minutes, check
+                            your spam folder.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
