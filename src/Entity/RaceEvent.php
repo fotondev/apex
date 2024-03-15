@@ -65,12 +65,14 @@ class RaceEvent
     private ?int $configVersion = null;
 
     #[ORM\OneToMany(targetEntity: RaceSession::class, mappedBy: 'raceEvent', cascade: ['persist', 'remove'])]
+    #[Assert\Valid]
     private Collection $sessions;
 
     #[ORM\Column(length: 16)]
     private ?string $type = null;
 
     #[ORM\OneToOne(targetEntity: Settings::class, mappedBy: 'raceEvent', cascade: ['persist', 'remove'])]
+    #[Assert\Valid]
     private ?Settings $settings = null;
 
     public function __construct()
@@ -81,13 +83,6 @@ class RaceEvent
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function setId(Uuid $id): static
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     public function getTrack(): ?string

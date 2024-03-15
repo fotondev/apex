@@ -14,5 +14,24 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     });
 
+    const overridePassCheck = document.querySelector('#race_event_serverOptions_overridePassword');
+    const passwordField = document.querySelector('#race_event_serverOptions_password');
 
+    togglePassword(overridePassCheck, passwordField);
+
+    overridePassCheck.addEventListener('change', (event) => {
+        togglePassword(overridePassCheck, passwordField);
+    });
+
+
+    function togglePassword(checkbox, passwordField) {
+        if (checkbox.checked) {
+            passwordField.removeAttribute('disabled');
+            passwordField.style.display = 'block';
+        } else {
+            passwordField.setAttribute('disabled', 'disabled');
+            passwordField.style.display = 'none';
+            passwordField.value = '';
+        }
+    }
 })

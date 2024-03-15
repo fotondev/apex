@@ -6,6 +6,8 @@ use App\Repository\SettingsRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Symfony\Component\Serializer\Annotation\Ignore;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\PasswordStrength;
 
 #[ORM\Entity(repositoryClass: SettingsRepository::class)]
 class Settings
@@ -18,8 +20,13 @@ class Settings
     #[ORM\Column(length: 36)]
     private ?string $carGroup = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Password = null;
+    #[ORM\Column(length: 36)]
+    #[Assert\PasswordStrength(
+        minScore: PasswordStrength::STRENGTH_WEAK,
+        groups: ['optional'],
+        message: 'Password should be at least 8 characters long and contain at least one number, one lowercase letter and one uppercase letter'
+    )]
+    private ?string $password = null;
 
     #[ORM\Column]
     private ?int $maxCarSlots = null;
@@ -49,14 +56,14 @@ class Settings
         return $this;
     }
 
-    public function getPassword(): ?string
+    public function getPassword(): string
     {
-        return $this->Password;
+        return $this->password;
     }
 
-    public function setPassword(string $Password): static
+    public function setPassword(?string $password): static
     {
-        $this->Password = $Password;
+        $this->password = $password;
 
         return $this;
     }

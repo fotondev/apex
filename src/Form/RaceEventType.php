@@ -32,7 +32,7 @@ class RaceEventType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $tracks = $options['tracks'];
-        $raceEvent  = $options['data'];
+        $raceEvent = $options['data'];
 
         $builder
             ->add('track', ChoiceType::class, [
@@ -47,9 +47,13 @@ class RaceEventType extends AbstractType
             ])
             ->add('sessions', CollectionType::class, [
                 'entry_type' => RaceSessionType::class,
+                'label' => false,
+                'entry_options' => [
+                    'label' => false
+                ]
             ])
             ->add('serverOptions', SettingsType::class, [
-                'data' =>$raceEvent->getSettings(),
+                'data' => $raceEvent->getSettings(),
                 'label' => false,
                 'mapped' => false,
             ])

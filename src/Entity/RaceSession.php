@@ -67,8 +67,7 @@ class RaceSession
     private RaceEvent $raceEvent;
 
     #[ORM\Column]
-    #[Assert\NotBlank]
-    #[Assert\Type(type: 'integer')]
+    #[Ignore]
     private ?int $raceEventId = null;
 
 

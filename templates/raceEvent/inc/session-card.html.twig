@@ -1,15 +1,36 @@
-<div class="form-group row"> {{ form_label(item.hourOfDay, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
-    <div class="col-sm-3"> {{ form_widget(item.hourOfDay, {'attr': {'class': 'form-control'}}) }} </div>
+<div class="form-group row">
+    {{ form_label(item.hourOfDay, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
+    <div class="col-sm-3">
+        {{ form_widget(item.hourOfDay, {'attr': {'class': 'form-control' ~ (form_errors(item.hourOfDay)|length > 0 ? ' is-invalid' : '')}}) }}
+        <div class="text-danger">
+            {{ form_errors(item.hourOfDay) }}
+        </div>
+    </div>
 </div>
-<div class="form-group row"> {{ form_label(item.dayOfWeekend, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
-    <div class="col-sm-3"> {{ form_widget(item.dayOfWeekend, {'attr': {'class': 'form-control'}}) }} </div>
+<div class="form-group row">
+    {{ form_label(item.dayOfWeekend, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
+    <div class="col-sm-3">
+        {{ form_widget(item.dayOfWeekend, {'attr': {'class': 'form-control' ~ (form_errors(item.dayOfWeekend)|length > 0 ? ' is-invalid' : '')}}) }}
+        <div class="text-danger">
+            {{ form_errors(item.dayOfWeekend) }}
+        </div>
+    </div>
 </div>
-<div class="form-group row"> {{ form_label(item.timeMultiplier, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
-    <div class="col-sm-3"> {{ form_widget(item.timeMultiplier, {'attr': {'class': 'form-control'}}) }} </div>
+<div class="form-group row">
+    {{ form_label(item.timeMultiplier, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
+    <div class="col-sm-3">
+        {{ form_widget(item.timeMultiplier, {'attr': {'class': 'form-control' ~ (form_errors(item.timeMultiplier)|length > 0 ? ' is-invalid' : '')}}) }}
+        <div class="text-danger">
+            {{ form_errors(item.timeMultiplier) }}
+        </div>
+    </div>
 </div>
-<div class="form-group row"> {{ form_label(item.sessionType, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
-    <div class="col-sm-3"> {{ form_widget(item.sessionType, {'attr': {'class': 'form-control'}}) }} </div>
-</div>
-<div class="form-group row"> {{ form_label(item.sessionDurationMinutes, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
-    <div class="col-sm-3"> {{ form_widget(item.sessionDurationMinutes, {'attr': {'class': 'form-control'}}) }} </div>
+<div class="form-group row">
+    {{ form_label(item.sessionDurationMinutes, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
+    <div class="col-sm-3">
+        {{ form_widget(item.sessionDurationMinutes, {'attr': {'class': 'form-control' ~ (form_errors(item.sessionDurationMinutes)|length > 0 ? ' is-invalid' : '')}}) }}
+        <div class="text-danger">
+            {{ form_errors(item.sessionDurationMinutes) }}
+        </div>
+    </div>
 </div>
