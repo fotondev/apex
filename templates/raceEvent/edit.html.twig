@@ -17,7 +17,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row mt-3">
                         {{ form_label(form.preRaceWaitingTimeSeconds, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
                         <div class="col-sm-5">
                             {{ form_widget(form.preRaceWaitingTimeSeconds, {'attr': {'class': 'form-control' ~ (form_errors(form.preRaceWaitingTimeSeconds)|length > 0 ? ' is-invalid' : '')}}) }}
@@ -26,7 +26,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row mt-3">
                         {{ form_label(form.sessionOverTimeSeconds, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
                         <div class="col-sm-5">
                             {{ form_widget(form.sessionOverTimeSeconds, {'attr': {'class': 'form-control' ~ (form_errors(form.sessionOverTimeSeconds)|length > 0 ? ' is-invalid' : '')}}) }}
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row mt-3">
                         {{ form_label(form.ambientTemp, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
                         <div class="col-sm-5">
                             {{ form_widget(form.ambientTemp, {'attr': {'class': 'form-control' ~ (form_errors(form.ambientTemp)|length > 0 ? ' is-invalid' : '')}}) }}
@@ -44,7 +44,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row mt-3">
                         {{ form_label(form.weatherScenario, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
                         <div class="col-sm-5">
                             {{ form_widget(form.weatherScenario, {'attr': {'class': 'form-control' ~ (form_errors(form.weatherScenario)|length > 0 ? ' is-invalid' : '')}}) }}
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row mt-3">
                         {{ form_label(form.serverOptions.carGroup, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
                         <div class="col-sm-5">
                             {{ form_widget(form.serverOptions.carGroup, {'attr': {'class': 'form-control' ~ (form_errors(form.serverOptions.carGroup)|length > 0 ? ' is-invalid' : '')}}) }}
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row mt-3">
                         {{ form_label(form.serverOptions.maxCarSlots, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
                         <div class="col-sm-5">
                             {{ form_widget(form.serverOptions.maxCarSlots, {'attr': {'class': 'form-control' ~ (form_errors(form.serverOptions.maxCarSlots)|length > 0 ? ' is-invalid' : '')}}) }}
@@ -117,13 +117,13 @@
                 </div>
             </div>
         </div>
-        <div class="card mt-3">
+        <div class="card">
             <div class="card-header">Server options</div>
             <div class="card-body">
                 <div class="form-group row"> {{ form_label(form.serverOptions.overridePassword, null, {'label_attr': {'class': 'col-sm-10 col-form-label'}}) }}
                     <div class="col-sm-5">{{ form_widget(form.serverOptions.overridePassword) }}</div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row mt-3">
                     {{ form_label(form.serverOptions.password, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
                     <div class="col-sm-5">
                         {{ form_widget(form.serverOptions.password, {'attr': {'class': 'form-control' ~ (form_errors(form.serverOptions.password)|length > 0 ? ' is-invalid' : '')}}) }}

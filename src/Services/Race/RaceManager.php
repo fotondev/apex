@@ -19,7 +19,7 @@ class RaceManager extends BaseService implements RaceManagerInterface
     public function execute(array $data): RaceEvent
     {
         $this->data = $data;
-        $this->source = self::createFromArray($data['raceEvent'], RaceData::class);
+        $this->source = self::createFromArray($data['race_event'], RaceData::class);
         $this->validate($this->source);
         $this->createRaceEvent();
         $this->createSettings();

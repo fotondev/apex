@@ -2,8 +2,6 @@
 
 namespace App\Services\Contracts;
 
-use App\Entity\RaceEvent;
-
 interface RaceManagerInterface
 {
     public function createRaceEvent(): void;

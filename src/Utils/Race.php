@@ -2,7 +2,7 @@
 
 namespace App\Utils;
 
-abstract class Race
+final class Race
 {
     const RACE_WEEKEND = 'Race weekend';
     const QUICK_RACE = 'Quick race';

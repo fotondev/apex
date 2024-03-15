@@ -21,11 +21,11 @@
             <a class="navbar-brand logo" href="{{ path('app_dashboard') }}">
                 <span>APEX</span></a>
         </div>
-                <div class="col-sm-6">
-                    <button class="btn btn-success float-right" id="create_quick_race">
-                        Create quick race
-                    </button>
-                </div>
+        <div class="col-sm-6">
+            <a href="{{ path('app_race_event_new', {'quick-race': 'true'}) }}" class="btn btn-success float-right">
+                Create quick race
+            </a>
+        </div>
         <ul class="navbar-nav mr-auto">
             {% if app.user %}
                 <li class="nav-item">

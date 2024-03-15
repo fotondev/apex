@@ -20,7 +20,7 @@ class Settings
     #[ORM\Column(length: 36)]
     private ?string $carGroup = null;
 
-    #[ORM\Column(length: 36)]
+    #[ORM\Column(length: 36, nullable: true)]
     #[Assert\PasswordStrength(
         minScore: PasswordStrength::STRENGTH_WEAK,
         groups: ['optional'],
@@ -56,7 +56,7 @@ class Settings
         return $this;
     }
 
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return $this->password;
     }
