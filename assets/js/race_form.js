@@ -24,6 +24,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
 
 
+    var addEntryButton = document.getElementById('add-entry');
+    addEntryButton.addEventListener('click', function (event) {
+        event.preventDefault();
+
+
+
+    });
+
+
     function togglePassword(checkbox, passwordField) {
         if (checkbox.checked) {
             passwordField.removeAttribute('disabled');
@@ -34,4 +43,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
             passwordField.value = '';
         }
     }
+
+
 })

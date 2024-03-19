@@ -8,10 +8,14 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: EntriesDriversRepository::class)]
 class EntriesDrivers
 {
+
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    #[ORM\Column(name: 'entry_id', type: 'integer', nullable: false)]
+    private ?int $entryId = null;
+
+    #[ORM\Id]
+    #[ORM\Column(name: 'driver_id', type: 'integer', nullable: false)]
+    private ?int $driverId = null;
 
     #[ORM\ManyToOne(targetEntity: Entry::class, cascade: ['persist'], inversedBy: 'entriesDrivers')]
     #[ORM\JoinColumn(name: 'entry_id', referencedColumnName: 'id')]
@@ -21,11 +25,7 @@ class EntriesDrivers
     #[ORM\JoinColumn(name: 'driver_id', referencedColumnName: 'id')]
     private ?Driver $driver = null;
 
-    #[ORM\Column]
-    private ?int $entryId = null;
 
-    #[ORM\Column]
-    private ?int $driverId = null;
 
     public function getId(): ?int
     {

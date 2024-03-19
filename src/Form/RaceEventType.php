@@ -26,9 +26,6 @@ use Symfony\Component\Validator\Constraints\Type;
 class RaceEventType extends AbstractType
 {
 
-//    public function __construct(private readonly RaceEventTransformer $transformer)
-//    {
-//    }
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $tracks = $options['tracks'];
