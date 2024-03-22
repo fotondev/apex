@@ -1,0 +1,86 @@
+<div class="modal fade" id="race-details-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"> {{ event.track_name ~ ', ' ~ event.track_country }}</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-sm-4"><strong>Track</strong></div>
+                            <div class="col-sm-8">
+                                <a href="#" target="_blank">
+                                    {{ event.track_name }}
+                                </a>
+                                - {{ event.track_unique_pitboxes }} Pit Boxes
+                                <br>
+                                {#                                <img src="/content/tracks/ks_zandvoort/map.png" class="img img-fluid img-map-preview" #}
+                                {#                                     alt="ks_zandvoort"> #}
+                            </div>
+                        </div>
+                        {#                        <div class="row mt-2"> #}
+                        {#                            <div class="col-sm-4"><strong>Cars</strong></div> #}
+                        {#                            <div class="col-sm-8"> #}
+                        {#                                <ul class="list-unstyled"> #}
+                        {#                                    <li> #}
+                        {#                                        <a href="#" target="_blank"> #}
+                        {#                                            BMW M235i Racing #}
+                        {#                                        </a> #}
+                        {#                                    </li> #}
+                        {#                                    <li>Available Tyres: M</li> #}
+                        {#                                </ul> #}
+                        {#                            </div> #}
+                        {#                        </div> #}
+                        <div class="row mt-2">
+                            <div class="col-sm-4"><strong>Sessions</strong></div>
+                            <div class="col-sm-8">
+                                <ul>
+                                    <li>
+                                        <em>
+                                            Practice
+                                        </em>
+                                        -
+                                        {{ event.practice_duration }} minutes
+                                    </li>
+
+                                    <li>
+                                        <em>
+                                            Qualifying
+                                        </em>
+                                        -
+                                        {{ event.qualifying_duration }} minutes,
+                                    </li>
+                                    <li>
+                                        <em>
+                                            Race
+                                        </em>
+                                        -
+                                        {{ event.race_duration }} minutes,
+                                        <br>Wait Time: {{ event.preRaceWaitingTimeSeconds }} seconds
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-sm-4"><strong>Entry List</strong></div>
+                            <div class="col-sm-8">
+                                <p>{{ event.entry_count }} entries</p>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-sm-4"><strong>Weather</strong></div>
+                            <div class="col-sm-8">
+                                <p>Time of Day: {{ event.practice_start }}:00</p>
+                                <b>Ambient:</b> {{ event.ambient_temp }}&#176;C
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,18 +1,27 @@
 <div class="card mt-4 mb-4">
-    <div class="card-header">{{ event.name }}</div>
+    <div class="card-header">{{ event.track_name }}</div>
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-sm-9">
                 <div class="race-info">
-                    {{ event.name ~ ', ' ~ event.country }}
+                    {{ event.track_name ~ ', ' ~ event.track_country }}
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12 mt-3">
-                <a href="{{ path('app_race_event_edit', {id:event.id}) }}" class="btn btn-primary">Edit</a>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('app_race_event_edit', {id:event.id}) }}" class="btn btn-primary">Edit</a>
 
-                <a href="{{ path('app_race_event_delete', {id:event.id}) }}" class="btn btn-danger">Delete</a>
+                    <a href="{{ path('app_race_event_delete', {id:event.id}) }}" class="btn btn-danger">Delete</a>
+
+                    <a href="{{ path('app_race_event_entries', {id:event.id}) }}" class="btn btn-warning">Entries</a>
+                {% endif %}
+                <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                        data-bs-target="#race-details-modal">
+                    Race details
+                </button>
+                {% include 'raceEvent/details.html.twig' with {event: event} %}
             </div>
         </div>
     </div>

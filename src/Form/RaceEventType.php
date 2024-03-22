@@ -22,6 +22,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Type;
+use function Sodium\add;
 
 class RaceEventType extends AbstractType
 {
@@ -48,6 +49,17 @@ class RaceEventType extends AbstractType
                 'entry_options' => [
                     'label' => false
                 ]
+            ])
+            ->add('entries', CollectionType::class, [
+                'entry_type' => EntryType::class,
+                'label' => false,
+                'by_reference' => false,
+                'allow_add' => true,
+                'allow_delete' => true,
+            ])
+            ->add('addEntries', AddEntryType::class, [
+                'label' => false,
+                'mapped' => false,
             ])
             ->add('serverOptions', SettingsType::class, [
                 'data' => $raceEvent->getSettings(),
@@ -88,7 +100,7 @@ class RaceEventType extends AbstractType
             'csrf_field_name' => '_token',
             'tracks' => [],
             'weather_scenarios' => [],
-            'settings' => null
+            'settings' => null,
         ]);
     }
 }

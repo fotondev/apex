@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Services\Race;
+namespace App\Services;
 
+use App\DTO\EntryData;
 use App\DTO\RaceData;
 use App\DTO\RaceSessionData;
 use App\DTO\SettingsData;
+use App\Entity\Entry;
 use App\Entity\RaceEvent;
 use App\Entity\RaceSession;
 use App\Entity\Settings;
-use App\Services\BaseService;
 use App\Services\Contracts\RaceManagerInterface;
 
 class RaceManager extends BaseService implements RaceManagerInterface
@@ -70,6 +71,22 @@ class RaceManager extends BaseService implements RaceManagerInterface
             ->setPassword($dto->password)
             ->setMaxCarSlots($dto->maxCarSlots);
         $this->raceEvent->setSettings($settings);
+    }
+
+
+    public function createDefaultEntry(array $entry): Entry
+    {
+        $dto = self::createFromArray($entry, EntryData::class);
+        $this->validate($dto);
+        $entry = (new Entry())
+            ->setRaceNumber($dto->raceNumber)
+            ->setForcedCarModel($dto->forcedCarModel)
+            ->setOverrideDriverInfo($dto->overrideDriverInfo)
+            ->setIsServerAdmin($dto->isServerAdmin);
+        foreach ($dto->drivers as $driver) {
+            $entry->addDriver($driver);
+        }
+        return $entry;
     }
 
 }

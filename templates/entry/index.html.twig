@@ -1,0 +1,182 @@
+{% extends 'dashboard/layout.html.twig' %}
+
+{% block body %}
+    <div class="container content-body">
+        <div class="card mt-3">
+            <div class="card-header">Entry List</div>
+            <div class="entries-block mt-3">
+                <ul class="entries">
+                    {% for index, entry in forms %}
+                        {% set entryId = entry.vars.value.id %}
+                        <li class="card mt-3 border-2 border-success">
+                            <div class="card-header"><h5>Entry {{ index + 1 }}</h5></div>
+                            <div class="card-body">
+                                {{ form_start(entry, {'action': path('app_entry_save', {id:entryId}),'attr': {'id': 'form_entry_'~ index}}) }}
+                                <div class="form-group row mt-3">
+                                    {{ form_label(entry.raceNumber, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
+                                    <div class="col-sm-5">
+                                        {{ form_widget(entry.raceNumber, {'attr': {'class': 'form-control' ~ (form_errors(entry.raceNumber)|length > 0 ? ' is-invalid' : '')}}) }}
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="drivers-block mt-3">
+                                            <ul class="entry_{{ index }}_drivers"
+                                                data-index="{{ entry.drivers|length > 0 ? entry.drivers|last.vars.name + 1 : 0 }}"
+                                                data-prototype="{{ form_widget(entry.drivers.vars.prototype)|e('html_attr') }}">
+                                                {% if entry.drivers is not empty %}
+                                                    <li class="card mt-3 border-info">
+                                                        <div class="card-header"><h5>Drivers</h5></div>
+                                                        <div class="card-body">
+                                                            <ul>
+                                                                {% for i, driver in entry.drivers %}
+                                                                    {% set driverId = driver.vars.value.id %}
+                                                                    <li>
+                                                                        <div class="card mt-2 p-2 border-warning">
+                                                                            <div class="card-header driver-header">
+                                                                                Driver {{ i+1 }}
+                                                                                <button id="delete_driver"
+                                                                                        data-index="{{ driverId }}"
+                                                                                        class="btn btn-sm btn-danger">
+                                                                                    Delete
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="card-body">
+                                                                                {{ form_widget(driver) }}
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                {% endfor %}
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-right mt-2">
+                                    <div class="col-sm-5">
+                                        <input id="entry_{{ index }}_drivers_quantity" type="number"
+                                               class="form-control" value="1">
+                                    </div>
+                                    <div class="col-sm-5 mt-2">
+                                        <button id="add_driver_{{ index }}" type="button"
+                                                class="add_driver_link btn btn-info"
+                                                data-collection-holder-class="entry_{{ index }}_drivers">ADD
+                                            DRIVER
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="text-danger">
+                                    {{ form_errors(entry.raceNumber) }}
+                                </div>
+                            </div>
+                            {{ form_widget(entry.saveEntry, {
+                                'attr': {'class': 'btn btn-primary btn-lg',
+                                    'name': 'save_btn_'~ index,
+                                    'id': 'save_entry_' ~ index,
+                                    'data-index': index
+                                }}) }}
+                            {{ form_end(entry) }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="../../assets/js/ajax.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document
+                .querySelectorAll('.add_driver_link')
+                .forEach(btn => {
+                    btn.addEventListener("click", addDriverFormToCollection)
+                });
+
+            function addDriverFormToCollection(e) {
+                e.preventDefault();
+                const collectionHolder = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
+                const index = parseInt(this.id.split("_")[2]);
+                const quantityInput = document.querySelector('#entry_' + index + '_drivers_quantity');
+                let quantity = parseInt(quantityInput.value);
+
+                for (let i = 0; i < quantity; i++) {
+                    const item = document.createElement('li');
+                    item.classList.add('card', 'mt-3', 'border-warning');
+
+                    const cardHeader = document.createElement('div');
+                    cardHeader.classList.add('card-header', 'driver-header');
+                    const headerText = document.createElement('h5');
+                    headerText.innerText = 'New Driver';
+                    cardHeader.appendChild(headerText);
+                    item.appendChild(cardHeader);
+
+                    const cardBody = document.createElement('div');
+                    cardBody.classList.add('card-body');
+                    item.appendChild(cardBody);
+
+                    cardBody.innerHTML = collectionHolder
+                        .dataset
+                        .prototype
+                        .replace(
+                            /__name__/g,
+                            collectionHolder.dataset.index
+                        );
+
+                    collectionHolder.appendChild(item);
+
+                    collectionHolder.dataset.index++;
+                    addDriverFormDeleteLink(item);
+                }
+
+
+            }
+
+            function addDriverFormDeleteLink(item) {
+                const removeFormButton = document.createElement('button');
+                removeFormButton.classList.add('btn', 'btn-sm', 'btn-danger', 'ml-auto');
+                removeFormButton.innerText = 'Delete';
+                const header = item.querySelector('.driver-header');
+                header.append(removeFormButton);
+
+                removeFormButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    item.remove();
+                });
+            }
+
+            const deleteButtons = document.querySelectorAll("#delete_driver");
+            deleteButtons.forEach(btn => {
+                btn.addEventListener('click', deleteDriver);
+            });
+
+            function deleteDriver(event) {
+                event.preventDefault();
+                let delBtn = this;
+                let driverId = delBtn.getAttribute('data-index');
+                if (driverId !== "") {
+                    console.log(driverId);
+                    fetch('/admin/drivers/' + driverId, {
+                        method: 'DELETE'
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                            location.reload();
+                        })
+                        .catch(error => {
+                            console.log(error);
+                        });
+                }
+            }
+        });
+    </script>
+
+
+{% endblock %}

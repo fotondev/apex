@@ -121,9 +121,43 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-warning mt-3" id="add-entry">
-                    ADD ENTRY
-                </button>
+                <div class="entries-block mt-3">
+                    <ul class="entries"
+                        data-index="{{ form.entries|length > 0 ? form.entries|last.vars.name + 1 : 0 }}"
+                        data-prototype="{{ form_widget(form.entries.vars.prototype)|e('html_attr') }}">
+                        {% for index, entry in form.entries %}
+                            {% set entryId = entry.vars.value.id %}
+                            <li class="card mt-3 border-2 border-success">
+                                <div class="card-header"><h5>Entry</h5></div>
+                                <div class="card-body" data-index="{{ entryId }}">
+                                    <div class="form-group row mt-3">
+                                        {{ form_label(entry.raceNumber, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
+                                        <div class="col-sm-5">
+                                            {{ form_widget(entry.raceNumber, {'attr': {'class': 'form-control' ~ (form_errors(entry.raceNumber)|length > 0 ? ' is-invalid' : '')}}) }}
+                                        </div>
+                                        <div class="text-danger">
+                                            {{ form_errors(entry.raceNumber) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-12 text-right mt-2">
+                    {{ form_label(form.addEntries.quantity, null, {'label_attr': {'class': 'col-sm-6 col-form-label'}}) }}
+                    <div class="col-sm-5">
+                        {{ form_widget(form.addEntries.quantity, {'attr': {'class': 'form-control' ~ (form_errors(form.addEntries.quantity)|length > 0 ? ' is-invalid' : '')}}) }}
+                        <div class="text-danger">
+                            {{ form_errors(form.addEntries.quantity) }}
+                        </div>
+                    </div>
+                    <div class="col-sm-5 mt-2">
+                        <button type="button" class="btn btn-warning add_item_link"
+                                data-collection-holder-class="entries">ADD ENTRY
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -147,14 +181,14 @@
                 </div>
             </div>
         </div>
-       {% if form.vars.errors|length > 0 %}
-        <div class="alert alert-danger">
-            <ul>
-                {% for error in form.vars.errors %}
-                    <li>{{ error.message }}</li>
-                {% endfor %}
-            </ul>
-        </div>
+        {% if form.vars.errors|length > 0 %}
+            <div class="alert alert-danger">
+                <ul>
+                    {% for error in form.vars.errors %}
+                        <li>{{ error.message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         {% endif %}
         {{ form_widget(form.save) }}
         {{ form_end(form) }}

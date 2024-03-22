@@ -4,14 +4,15 @@
     <div class="container content-body">
         <h2>Races</h2>
         <div class="row">
-            <div class="col-md-6 col-lg-4 mt-4">
+            <div class="col-md-4 col-lg-3 mt-4">
                 <a class="card btn" href="{{ path('app_race_events') }}">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-5">
+                            <div class="card-img col-2">
+                                <img src="{{ asset('img/svg/race.svg') }}" alt="race-pic" style="max-width: 60%; max-height: 150px;">
                             </div>
-                            <div class="col-7">
-                               <h3>Race Events</h3>
+                            <div class="card-text col-10">
+                                <h3>Race Events</h3>
                             </div>
                         </div>
                     </div>

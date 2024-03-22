@@ -20,41 +20,33 @@ class Entry
     #[ORM\Column]
     private ?int $raceNumber = null;
 
-    #[ORM\Column(type: Types::SMALLINT)]
-    private ?int $forcedCarModel = null;
-
-    #[ORM\Column]
-    private ?bool $overrideDriverInfo = null;
-
-    #[ORM\Column]
-    private ?bool $isServerAdmin = null;
-
-    #[ORM\ManyToMany(targetEntity: Driver::class, inversedBy: 'entries')]
-    #[ORM\JoinTable(name: 'entries_drivers')]
-    #[ORM\JoinColumn(name: 'entry_id', referencedColumnName: 'id', onDelete: 'CASCADE')]
-    #[ORM\InverseJoinColumn(name: 'driver_id', referencedColumnName: 'id', onDelete: 'CASCADE')]
+    #[ORM\ManyToMany(targetEntity: Driver::class, inversedBy: 'entries', cascade: ['persist', 'remove'])]
     private Collection $drivers;
 
     #[ORM\ManyToOne(inversedBy: 'entries')]
     #[ORM\JoinColumn(name: 'race_event_id', referencedColumnName: 'id')]
+    #[Ignore]
     private ?RaceEvent $raceEvent = null;
 
     #[ORM\Column]
     #[Ignore]
     private ?int $raceEventId = null;
 
-    #[ORM\OneToMany(targetEntity: EntriesDrivers::class, mappedBy: 'entry', cascade: ['persist'], orphanRemoval: true)]
-    private Collection $entriesDrivers;
-
     public function __construct()
     {
         $this->drivers = new ArrayCollection();
-        $this->entriesDrivers = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(int $id): static
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     public function getRaceNumber(): ?int
@@ -65,42 +57,6 @@ class Entry
     public function setRaceNumber(int $raceNumber): static
     {
         $this->raceNumber = $raceNumber;
-
-        return $this;
-    }
-
-    public function getForcedCarModel(): ?int
-    {
-        return $this->forcedCarModel;
-    }
-
-    public function setForcedCarModel(int $forcedCarModel): static
-    {
-        $this->forcedCarModel = $forcedCarModel;
-
-        return $this;
-    }
-
-    public function isOverrideDriverInfo(): ?bool
-    {
-        return $this->overrideDriverInfo;
-    }
-
-    public function setOverrideDriverInfo(bool $overrideDriverInfo): static
-    {
-        $this->overrideDriverInfo = $overrideDriverInfo;
-
-        return $this;
-    }
-
-    public function isIsServerAdmin(): ?bool
-    {
-        return $this->isServerAdmin;
-    }
-
-    public function setIsServerAdmin(bool $isServerAdmin): static
-    {
-        $this->isServerAdmin = $isServerAdmin;
 
         return $this;
     }
@@ -141,33 +97,17 @@ class Entry
         return $this;
     }
 
-    /**
-     * @return Collection<int, EntriesDrivers>
-     */
-    public function getEntriesDrivers(): Collection
+    public function getRaceEventId(): ?int
     {
-        return $this->entriesDrivers;
+        return $this->raceEventId;
+
     }
 
-    public function addEntriesDriver(EntriesDrivers $entriesDriver): static
+    public function setRaceEventId(int $raceEventId): static
     {
-        if (!$this->entriesDrivers->contains($entriesDriver)) {
-            $this->entriesDrivers->add($entriesDriver);
-            $entriesDriver->setEntry($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEntriesDriver(EntriesDrivers $entriesDriver): static
-    {
-        if ($this->entriesDrivers->removeElement($entriesDriver)) {
-            // set the owning side to null (unless already changed)
-            if ($entriesDriver->getEntry() === $this) {
-                $entriesDriver->setEntry(null);
-            }
-        }
+        $this->raceEventId = $raceEventId;
 
         return $this;
     }
 }
+

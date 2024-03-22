@@ -19,13 +19,17 @@
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand logo" href="{{ path('app_dashboard') }}">
+                <img src="{{ asset('img/logo.png') }}" alt="logo" style="max-width: 50%; max-height: 60px">
                 <span>APEX</span></a>
         </div>
-        <div class="col-sm-6">
-            <a href="{{ path('app_race_event_new', {'quick-race': 'true'}) }}" class="btn btn-success float-right">
-                Create quick race
-            </a>
-        </div>
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="col-sm-6">
+                <a href="{{ path('app_race_event_new', {'quick-race': 'true'}) }}" class="btn btn-success float-right">
+                    Create quick race
+                </a>
+            </div>
+        {% endif %}
+
         <ul class="navbar-nav mr-auto">
             {% if app.user %}
                 <li class="nav-item">

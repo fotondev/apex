@@ -7,4 +7,9 @@ final class Race
     const RACE_WEEKEND = 'Race weekend';
     const QUICK_RACE = 'Quick race';
 
+    const PRACTICE = 'P';
+
+    const RACE = 'R';
+    const QUALIFY = 'Q';
+
 }

@@ -9,11 +9,13 @@
                 Race Events
             </h1>
         </div>
+        {% if is_granted('ROLE_ADMIN') %}
         <div class="col-sm-4">
             <a href="{{ path('app_race_event_new') }}" class="btn btn-success float-right" id="create_event">
                 Create race event
             </a>
         </div>
+        {% endif %}
     </div>
 
     {% for event in race_events  %}

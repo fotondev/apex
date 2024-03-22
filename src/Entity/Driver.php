@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Ignore;
 
 #[ORM\Entity(repositoryClass: DriverRepository::class)]
 class Driver
@@ -32,23 +33,24 @@ class Driver
     private ?string $playerID = null;
 
     #[ORM\ManyToMany(targetEntity: Entry::class, mappedBy: 'drivers')]
-    #[ORM\JoinTable(name: 'entries_drivers')]
-    #[ORM\JoinColumn(name: 'driver_id', referencedColumnName: 'id', onDelete: 'CASCADE')]
-    #[ORM\InverseJoinColumn(name: 'entry_id', referencedColumnName: 'id', onDelete: 'CASCADE')]
+    #[Ignore]
     private Collection $entries;
-
-    #[ORM\OneToMany(targetEntity: EntriesDrivers::class, mappedBy: 'driver', cascade: ['persist'], orphanRemoval: true)]
-    private Collection $entriesDrivers;
 
     public function __construct()
     {
         $this->entries = new ArrayCollection();
-        $this->entriesDrivers = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(int $id): static
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     public function getFirstName(): ?string
@@ -133,36 +135,6 @@ class Driver
     {
         if ($this->entries->removeElement($entry)) {
             $entry->removeDriver($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, EntriesDrivers>
-     */
-    public function getEntriesDrivers(): Collection
-    {
-        return $this->entriesDrivers;
-    }
-
-    public function addEntriesDriver(EntriesDrivers $entriesDriver): static
-    {
-        if (!$this->entriesDrivers->contains($entriesDriver)) {
-            $this->entriesDrivers->add($entriesDriver);
-            $entriesDriver->setDriver($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEntriesDriver(EntriesDrivers $entriesDriver): static
-    {
-        if ($this->entriesDrivers->removeElement($entriesDriver)) {
-            // set the owning side to null (unless already changed)
-            if ($entriesDriver->getDriver() === $this) {
-                $entriesDriver->setDriver(null);
-            }
         }
 
         return $this;

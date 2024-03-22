@@ -38,7 +38,7 @@ final class ConfigApiClient
         return json_decode(file_get_contents(self::$configDir . "/" . $file), true);
     }
 
-    public function saveRaceConfig(array $config, array $defaultSettings)
+    public function saveRaceConfig(array $config, array $defaultSettings): void
     {
         $dir = self::$configDir . "/" . $config['id'];
         if (!is_dir($dir)) {
@@ -51,13 +51,42 @@ final class ConfigApiClient
             }
         }
 
-        $excludedKeys = ['settings', 'type', 'raceEventId'];
-        $raceConfigData = array_diff_key($config, array_flip($excludedKeys));
+        $excConfigKeys = ['id', 'settings', 'type', 'raceEventId', 'entries'];
+        $raceConfigData = array_diff_key($config, array_flip($excConfigKeys));
+
+        $excSessionKey = ['id'];
+
+        $raceConfigData['sessions'] = array_map(function ($session) use ($excSessionKey) {
+            return array_diff_key($session, array_flip($excSessionKey));
+        }, $config['sessions'] ?? []);
+
 
         $raceConfig = $this->serializer->serialize($raceConfigData, 'json');
         $serverConfig = $this->serializer->serialize($defaultSettings, 'json');
         file_put_contents($dir . "/race.json", $raceConfig);
         file_put_contents($dir . "/settings.json", $serverConfig);
+
+        $this->saveEntryList($config['entries'], $dir);
+
+    }
+
+    public function saveEntryList(array $entries, string $dir): void
+    {
+        $entriesDefault = $this->readJsonFile('/entrylist.json');
+        $entryList = $dir . "/entrylist.json";
+
+        $entriesConfig['entries'] = array_map(function ($entry) use ($entriesDefault) {
+            $entry['forcedCarModel'] = $entriesDefault['entries'][0]['forcedCarModel'] ?? -1;
+            $entry['overrideDriverInfo'] = $entriesDefault['entries'][0]['overrideDriverInfo'] ?? 0;
+            $entry['isServerAdmin'] = $entriesDefault['entries'][0]['isServerAdmin'] ?? 1;
+            unset($entry['id']);
+            return $entry;
+        }, $entries);
+
+        $entriesConfig['forceEntryList'] = $entriesDefault['forceEntryList'] ?? 0;
+
+        $entriesData = $this->serializer->serialize($entriesConfig, 'json');
+        file_put_contents($entryList, $entriesData);
 
     }
 

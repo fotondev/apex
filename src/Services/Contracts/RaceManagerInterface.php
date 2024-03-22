@@ -2,6 +2,8 @@
 
 namespace App\Services\Contracts;
 
+use App\Entity\Entry;
+
 interface RaceManagerInterface
 {
     public function createRaceEvent(): void;
@@ -9,5 +11,7 @@ interface RaceManagerInterface
     public function createSessions(): void;
 
     public function createSettings(): void;
+
+    public function createDefaultEntry(array $entry): Entry;
 
 }

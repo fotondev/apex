@@ -68,6 +68,10 @@ class RaceEvent
     #[Assert\Valid]
     private Collection $sessions;
 
+    #[ORM\OneToMany(targetEntity: Entry::class, mappedBy: 'raceEvent', cascade: ['persist', 'remove'])]
+    #[Assert\Valid]
+    private Collection $entries;
+
     #[ORM\Column(length: 16)]
     private ?string $type = null;
 
@@ -78,6 +82,7 @@ class RaceEvent
     public function __construct()
     {
         $this->sessions = new ArrayCollection();
+        $this->entries = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -232,6 +237,34 @@ class RaceEvent
     {
         $this->settings = $settings;
         $settings->setRaceEvent($this);
+
+        return $this;
+    }
+
+    public function getEntries(): Collection
+    {
+        return $this->entries;
+
+    }
+
+    public function addEntry(Entry $entry): static
+    {
+        if (!$this->entries->contains($entry)) {
+            $this->entries[] = $entry;
+            $entry->setRaceEvent($this);
+        }
+
+        return $this;
+    }
+
+
+    public function removeEntry(Entry $entry): static
+    {
+        if ($this->entries->removeElement($entry)) {
+            if ($entry->getRaceEvent() === $this) {
+                $entry->setRaceEvent(null);
+            }
+        }
 
         return $this;
     }

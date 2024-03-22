@@ -61,9 +61,7 @@ class SecurityController extends AbstractController
                 throw new ValidationException(['email' => 'User already exists']);
             }
 
-            $randomBytes = random_bytes(10); // Generate 10 random bytes
-            // Encode the random bytes as a password
-
+            $randomBytes = random_bytes(10);
             $user = new User();
             $user->setName($name);
             $user->setEmail($email);

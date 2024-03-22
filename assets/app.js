@@ -14,18 +14,3 @@ import './js/login.js';
 import './js/lostpass';
 import './js/race_form.js';
 import './js/dashboard.js';
-
-
-
-// document.querySelector('#create_quick_race').addEventListener('click', function (event) {
-//     get(`/quick-race`)
-//         .then(response => {
-//             if (response.ok) {
-//                 return response.json();
-//             }
-//         })
-//         .then(data => {
-//             const eventId = data.data.id;
-//             window.location.href = '/quick-race/edit?id='+ eventId;
-//         });
-// });
